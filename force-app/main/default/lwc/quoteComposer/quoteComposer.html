@@ -1,0 +1,29 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-04-2025
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Quote Composer" icon-name="standard:quotes">
+        <div slot="actions">
+            <lightning-button 
+                label="Add New Quote Line"
+                onclick={handleAddQuoteLine}
+                variant="brand-outline">
+            </lightning-button>
+        </div>
+        <template if:true={dataList}>
+            <lightning-datatable 
+                key-field="Id"
+                data={dataList}
+                columns={columnList}
+                onrowaction={handlerowaction}>
+            </lightning-datatable>
+        </template>
+        <template if:false={dataList}>
+            <p class="slds-text-body_regular">No data available to display.</p>
+        </template>
+    </lightning-card>
+</template>
